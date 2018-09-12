@@ -1,4 +1,4 @@
-# Polls  Web Application 
+# Voting Application 
 
 #Tech
  - Django 2

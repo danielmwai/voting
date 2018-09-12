@@ -1,0 +1,4 @@
+Django
+Pillow
+django-authtools
+easy-thumbnails

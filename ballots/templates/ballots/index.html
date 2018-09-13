@@ -1,0 +1,14 @@
+{% if latest_party_list %}
+   <ul>
+   	{% for  party in latest_party_list %}
+   	   <li>
+   	   	<a href="{% url  'ballots:detail' party.id %}">
+   	   		{{party.party_name}}
+   	   </li>
+   	{% endfor%}
+   </ul>
+
+   {% else %}
+     <p>No ballots cast for this  Party </p>
+   
+    {% endif %}

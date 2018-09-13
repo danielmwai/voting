@@ -23,8 +23,10 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
-INSTALLED_APPS = [
+USER_APPS = [
+    'ballots.apps.BallotsConfig'
+]
+INSTALLED_APPS =  USER_APPS + [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

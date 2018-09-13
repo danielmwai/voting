@@ -1,0 +1,17 @@
+<h1>{{party.party_name}}</h1>
+{% if error_message %}<p><strong>{{ error_message }} </strong></p>
+{% endif %}
+<ul>
+</ul>
+<form action="{% url 'ballots:vote' party.id %}" method="post">
+	{% csrf_token %}
+	{% for party in  party.candidate_set.all %}
+	   <input type="radio" name="party" id="party{{ forloop.counter }}" value="{{ party_id }}" />
+
+	   <label  for="party{{ forloop.counter }}"> {{ party.candidate }} </label> <br/>
+
+	   {% endfor %}
+
+	   <input type="submit" value="Cast Ballot" />
+	   </form>
+

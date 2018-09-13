@@ -1,14 +1,25 @@
 <h1>{{party.party_name}}</h1>
 {% if error_message %}<p><strong>{{ error_message }} </strong></p>
 {% endif %}
-<ul>
-</ul>
+<!-- <ul>
+{% for party in party.candidate_set.all %}
+    <li>Candidate  Name : {{ party.candidate }}</li>
+        <li>Registered On :  {{ party.date_registered }}</li>
+    <li> Votes Cast: {{ party.votes }}</li>
+
+{% endfor %}
+</ul> -->
+
 <form action="{% url 'ballots:vote' party.id %}" method="post">
 	{% csrf_token %}
-	{% for party in  party.candidate_set.all %}
-	   <input type="radio" name="party" id="party{{ forloop.counter }}" value="{{ party_id }}" />
+	{% for candidate in  party.candidate_set.all %}
+	   <input type="radio" name="candidate" id="candidate{{ forloop.counter }}" value="{{ candidate.id }}" />
 
-	   <label  for="party{{ forloop.counter }}"> {{ party.candidate }} </label> <br/>
+	   <label  for="candidate{{ forloop.counter }}"> Candidate  Name : {{ candidate.candidate }} </label> <br/>
+	   <ul><label  for="candidate{{ forloop.counter }}">Registered On : {{ candidate.date_registered }} </label> <br/>
+	   <label  for="candidate{{ forloop.counter }}"> Votes Cast :{{ candidate.votes }} </label> <br/>
+	 </ul>
+
 
 	   {% endfor %}
 

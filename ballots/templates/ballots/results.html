@@ -1,0 +1,7 @@
+<h1>{{ party.party_name}}</h1>
+<ul>
+{% for  candidate in party.candidate_set.all %}
+<li>{{ candidate.candidate}} -- {{candidate.votes}} vote {{ candidate.vote|pluralize}}</li>
+{% endfor %}
+</ul>
+<a href="{% url 'ballots:detail' party.id %}">Vote again? </a>

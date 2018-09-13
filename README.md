@@ -4,7 +4,6 @@ Voting is a django based app.Includes the following functionalites
   - Parties
   - Candidates
   - Voting
-  - 
  ## To run the app:
   - Clone the Repository
   - Create the virtualenv for the project
